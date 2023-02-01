@@ -1,7 +1,7 @@
 import React from "react";
 
 function GuessInput({ userGuesses, setUserGuesses }) {
-  const [guess, setGuess] = React.useState(true);
+  const [guess, setGuess] = React.useState({ text: "" });
 
   return (
     <form
