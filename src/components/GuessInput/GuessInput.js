@@ -11,8 +11,8 @@ function GuessInput() {
       className="guess-input-wrapper"
       onSubmit={(event) => {
         event.preventDefault();
-        if (guessInProgress.length < 5) {
-          console.error("You need to enter at least 5 letters!");
+        if (guessInProgress.length != 5) {
+          console.error("You need to enter exactly 5 characters");
           return;
         }
         const nextFinishedGuess = { guess: guessInProgress };
@@ -23,10 +23,12 @@ function GuessInput() {
     >
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        required
         id="guess-input"
         type="text"
         value={guessInProgress}
         maxLength="5"
+        minLength="5"
         onChange={(event) => {
           setGuessInProgress(event.target.value.toUpperCase());
         }}
